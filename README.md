@@ -1,6 +1,6 @@
 # Publish pretty Html reports on [Jenkins](http://jenkins-ci.org/)
  
-This is a Java Jenkins plugin which publishes pretty html reports showing the results of Behave runs. 
+This is a Python Jenkins plugin which publishes pretty html reports showing the results of Behave runs. 
 
 
 ## Background
