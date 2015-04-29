@@ -5,10 +5,10 @@ import hudson.model.Run;
 
 import java.io.File;
 
-public class CucumberReportBuildAction extends CucumberReportBaseAction {
+public class BehaveReportBuildAction extends BehaveBaseAction {
     private final AbstractBuild<?, ?> build;
 
-    public CucumberReportBuildAction(AbstractBuild<?, ?> build) {
+    public BehaveReportBuildAction(AbstractBuild<?, ?> build) {
         super();
         this.build = build;
     }

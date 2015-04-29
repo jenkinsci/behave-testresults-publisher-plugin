@@ -7,10 +7,10 @@ import hudson.model.Run;
 
 import java.io.File;
 
-public class CucumberReportProjectAction extends CucumberReportBaseAction implements ProminentProjectAction {
+public class BehaveReportProjectAction extends BehaveBaseAction implements ProminentProjectAction {
     private final AbstractItem project;
 
-    public CucumberReportProjectAction(AbstractItem project) {
+    public BehaveReportProjectAction(AbstractItem project) {
         super();
         this.project = project;
     }

@@ -14,7 +14,7 @@ import javax.servlet.ServletException;
 import java.io.File;
 import java.io.IOException;
 
-public abstract class CucumberReportBaseAction implements Action {
+public abstract class BehaveBaseAction implements Action {
     
     public String getUrlName(){
         return "cucumber-html-reports";

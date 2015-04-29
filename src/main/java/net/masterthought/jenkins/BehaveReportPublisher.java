@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CucumberReportPublisher extends Recorder {
+public class BehaveReportPublisher extends Recorder {
 
     public final String jsonReportDirectory;
     public final String pluginUrlPath;
@@ -34,7 +34,7 @@ public class CucumberReportPublisher extends Recorder {
     public final boolean parallelTesting;
 
     @DataBoundConstructor
-    public CucumberReportPublisher(String jsonReportDirectory, String pluginUrlPath, boolean skippedFails, boolean undefinedFails, boolean noFlashCharts, boolean ignoreFailedTests, boolean parallelTesting) {
+    public BehaveReportPublisher(String jsonReportDirectory, String pluginUrlPath, boolean skippedFails, boolean undefinedFails, boolean noFlashCharts, boolean ignoreFailedTests, boolean parallelTesting) {
         this.jsonReportDirectory = jsonReportDirectory;
         this.pluginUrlPath = pluginUrlPath;
         this.skippedFails = skippedFails;
@@ -56,7 +56,7 @@ public class CucumberReportPublisher extends Recorder {
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws IOException, InterruptedException {
 
-        listener.getLogger().println("[CucumberReportPublisher] Compiling Cucumber Html Reports ...");
+        listener.getLogger().println("[BehaveReportPublisher] Compiling Cucumber Html Reports ...");
 
         // source directory (possibly on slave)
         FilePath workspaceJsonReportDirectory;
@@ -76,9 +76,9 @@ public class CucumberReportPublisher extends Recorder {
         String buildProject = build.getProject().getName();
 
         if (Computer.currentComputer() instanceof SlaveComputer) {
-            listener.getLogger().println("[CucumberReportPublisher] copying all json files from slave: " + workspaceJsonReportDirectory.getRemote() + " to master reports directory: " + targetBuildDirectory);
+            listener.getLogger().println("[BehaveReportPublisher] copying all json files from slave: " + workspaceJsonReportDirectory.getRemote() + " to master reports directory: " + targetBuildDirectory);
         } else {
-            listener.getLogger().println("[CucumberReportPublisher] copying all json files from: " + workspaceJsonReportDirectory.getRemote() + " to reports directory: " + targetBuildDirectory);
+            listener.getLogger().println("[BehaveReportPublisher] copying all json files from: " + workspaceJsonReportDirectory.getRemote() + " to reports directory: " + targetBuildDirectory);
         }
         workspaceJsonReportDirectory.copyRecursiveTo("**/*.json", new FilePath(targetBuildDirectory));
 
@@ -87,13 +87,13 @@ public class CucumberReportPublisher extends Recorder {
         String[] jsonReportFiles = findJsonFiles(targetBuildDirectory);
         if (jsonReportFiles.length != 0) {
 
-            listener.getLogger().println("[CucumberReportPublisher] Found the following number of json files: " + jsonReportFiles.length);
+            listener.getLogger().println("[BehaveReportPublisher] Found the following number of json files: " + jsonReportFiles.length);
             int jsonIndex = 0;
             for (String jsonReportFile : jsonReportFiles) {
-                listener.getLogger().println("[CucumberReportPublisher] " + jsonIndex + ". Found a json file: " + jsonReportFile);
+                listener.getLogger().println("[BehaveReportPublisher] " + jsonIndex + ". Found a json file: " + jsonReportFile);
                 jsonIndex++;
             }
-            listener.getLogger().println("[CucumberReportPublisher] Generating HTML reports");
+            listener.getLogger().println("[BehaveReportPublisher] Generating HTML reports");
 
             try {                
                 ReportBuilder reportBuilder = new ReportBuilder(
@@ -125,17 +125,17 @@ public class CucumberReportPublisher extends Recorder {
             } catch (Exception e) {
                 e.printStackTrace();
 				result = Result.FAILURE;
-                listener.getLogger().println("[CucumberReportPublisher] there was an error generating the reports: " + e);
+                listener.getLogger().println("[BehaveReportPublisher] there was an error generating the reports: " + e);
                 for(StackTraceElement error : e.getStackTrace()){
                    listener.getLogger().println(error);
                 }
             }
         } else {
 			result = Result.SUCCESS;
-            listener.getLogger().println("[CucumberReportPublisher] there were no json results found in: " + targetBuildDirectory);
+            listener.getLogger().println("[BehaveReportPublisher] there were no json results found in: " + targetBuildDirectory);
         }
 
-        build.addAction(new CucumberReportBuildAction(build));
+        build.addAction(new BehaveReportBuildAction(build));
 		build.setResult(result);
 		
         return true;
@@ -151,7 +151,7 @@ public class CucumberReportPublisher extends Recorder {
 
     @Override
     public Action getProjectAction(AbstractProject<?, ?> project) {
-        return new CucumberReportProjectAction(project);
+        return new BehaveReportProjectAction(project);
     }
 
     @Extension
