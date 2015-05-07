@@ -10,6 +10,4 @@ Specifications are written in a concise human readable form and executed in cont
 
 This plugin allows Jenkins to publish the results as y html reports hosted by the Jenkins build server. In order for this plugin to work you must be generating a json report using behave  --format=json.pretty --outfile=resultsfilenameofyourchoice.json.
 
-The plugin converts the json report into an overview html linking to separate feature file htmls with stats and results. 
-
-Many thanks to Kingsley Hendriks for the original plugin, this is a modified version of Cucumber HTML reports plugin developed for Cucumber JVM
+The plugin converts the json report into an html linking to feature files
