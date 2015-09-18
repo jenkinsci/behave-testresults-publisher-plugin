@@ -17,15 +17,15 @@ import java.io.IOException;
 public abstract class BehaveBaseAction implements Action {
     
     public String getUrlName(){
-        return "cucumber-html-reports";
+        return "behave-html-reports";
     }
     
     public String getDisplayName(){
-        return "Cucumber Reports";
+        return "Behave Reports";
     }
     
     public String getIconFileName(){
-            return "/plugin/cucumber-reports/cuke.png";
+            return "/plugin/behave-reports/cuke.png";
     }
 
     public void doDynamic(StaplerRequest req, StaplerResponse rsp) throws IOException, ServletException {

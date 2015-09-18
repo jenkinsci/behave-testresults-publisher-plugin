@@ -7,22 +7,21 @@
         <!-- which version of Jenkins is this plugin built against? -->
     </parent>
 
-    <groupId>net.masterthought.jenkins</groupId>
-    <artifactId>cucumber-reports</artifactId>
+    <groupId>net.jenkins</groupId>
+    <artifactId>behave-reports</artifactId>
     <version>0.0.24-SNAPSHOT</version>
     <packaging>hpi</packaging>
 
     <scm>
-        <connection>scm:git:git@github.com:masterthought/jenkins-cucumber-jvm-reports-plugin-java.git</connection>
-        <developerConnection>scm:git:git@github.com:masterthought/jenkins-cucumber-jvm-reports-plugin-java.git
+        <connection>scm:git:git@github.com:ChaitanyaChannella/jenkins-cucumber-jvm-reports-plugin-java.git</connection>
+        <developerConnection>scm:git:git@github.com:ChaitanyaChannella/jenkins-cucumber-jvm-reports-plugin-java.git
         </developerConnection>
-        <url>git@github.com:masterthought/jenkins-cucumber-jvm-reports-plugin-java.git</url>
+        <url>git@github.com:ChaitanyaChannella/jenkins-cucumber-jvm-reports-plugin-java.git</url>
     </scm>
 
     <description>
-        This project provides pretty html reports for Cucumber. It works by generating html from the cucumber json
-        report formatter. So can be used anywhere a json report is generated. Current use is in the cucumber jenkins
-        plugin and a maven mojo to generate the same report from mvn command line when running locally.
+        This project provides pretty html reports for Behave. It works by generating html from the behave json
+        report formatter.
     </description>
 
     <licenses>
@@ -35,9 +34,9 @@
 
     <developers>
         <developer>
-            <id>kingsleyh</id>
-            <name>Kingsley Hendrickse</name>
-            <email>kingsley@masterthought.net</email>
+            <id>ChaitanyaChannella</id>
+            <name>Chaitanya Channella</name>
+            <email>channellac@gmail.com</email>
             <timezone>GMT</timezone>
             <roles>
             </roles>
