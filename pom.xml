@@ -13,10 +13,10 @@
     <packaging>hpi</packaging>
 
     <scm>
-        <connection>scm:git:git@github.com:ChaitanyaChannella/jenkins-cucumber-jvm-reports-plugin-java.git</connection>
-        <developerConnection>scm:git:git@github.com:ChaitanyaChannella/jenkins-cucumber-jvm-reports-plugin-java.git
+        <connection>scm:git:git@github.com:ChaitanyaChannella/BehaveJenkinsPlugin.git</connection>
+        <developerConnection>scm:git:git@github.com:ChaitanyaChannella/BehaveJenkinsPlugin.git
         </developerConnection>
-        <url>git@github.com:ChaitanyaChannella/jenkins-cucumber-jvm-reports-plugin-java.git</url>
+        <url>git@github.com:ChaitanyaChannella/BehaveJenkinsPlugin.git</url>
     </scm>
 
     <description>
