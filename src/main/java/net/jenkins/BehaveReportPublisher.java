@@ -56,7 +56,7 @@ public class BehaveReportPublisher extends Recorder {
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws IOException, InterruptedException {
 
-        listener.getLogger().println("[BehaveReportPublisher] Compiling Cucumber Html Reports ...");
+        listener.getLogger().println("[BehaveReportPublisher] Compiling Behave Html Reports ...");
 
         // source directory (possibly on slave)
         FilePath workspaceJsonReportDirectory;
@@ -67,7 +67,7 @@ public class BehaveReportPublisher extends Recorder {
         }
 
         // target directory (always on master)
-        File targetBuildDirectory = new File(build.getRootDir(), "cucumber-html-reports");
+        File targetBuildDirectory = new File(build.getRootDir(), "behave-html-reports");
         if (!targetBuildDirectory.exists()) {
             targetBuildDirectory.mkdirs();
         }
@@ -158,7 +158,7 @@ public class BehaveReportPublisher extends Recorder {
     public static class DescriptorImpl extends BuildStepDescriptor<Publisher> {
         @Override
         public String getDisplayName() {
-            return "Publish cucumber results as a report";
+            return "Publish behave results as a report";
         }
 
 

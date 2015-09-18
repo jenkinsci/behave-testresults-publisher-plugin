@@ -20,7 +20,7 @@ public class BehaveReportBuildAction extends BehaveBaseAction {
 
     @Override
     protected File dir() {
-        return new File(build.getRootDir(), "cucumber-html-reports");
+        return new File(build.getRootDir(), "behave-html-reports");
     }
 
 }

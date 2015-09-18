@@ -34,14 +34,14 @@ public class BehaveReportProjectAction extends BehaveBaseAction implements Promi
     }
 
     private File getProjectArchiveDir(AbstractItem project) {
-        return new File(project.getRootDir(), "cucumber-html-reports");
+        return new File(project.getRootDir(), "behave-html-reports");
     }
 
     /**
      * Gets the directory where the HTML report is stored for the given build.
      */
     private File getBuildArchiveDir(Run run) {
-        return new File(run.getRootDir(), "cucumber-html-reports");
+        return new File(run.getRootDir(), "behave-html-reports");
     }
 
 
