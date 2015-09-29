@@ -8,15 +8,16 @@
     </parent>
 
     <groupId>net.jenkins</groupId>
-    <artifactId>behave-reports</artifactId>
-    <version>0.0.24-SNAPSHOT</version>
+    <artifactId>behave-testresults-publisher</artifactId>
+    <version>0.0.2</version>
     <packaging>hpi</packaging>
+    <url>https://wiki.jenkins-ci.org/display/JENKINS/Behave+Test+Results+Publisher+Plugin</url>
 
     <scm>
-        <connection>scm:git:git@github.com:ChaitanyaChannella/BehaveJenkinsPlugin.git</connection>
-        <developerConnection>scm:git:git@github.com:ChaitanyaChannella/BehaveJenkinsPlugin.git
+        <connection>scm:git:ssh://github.com/jenkinsci/behave-testresults-publisher-plugin.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/jenkinsci/behave-testresults-publisher-plugin.git
         </developerConnection>
-        <url>git@github.com:ChaitanyaChannella/BehaveJenkinsPlugin.git</url>
+        <url>https://github.com/jenkinsci/behave-testresults-publisher-plugin</url>
     </scm>
 
     <description>
@@ -47,12 +48,12 @@
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>            
+            <url>http://repo.jenkins-ci.org/public/</url>
         </repository>
         <repository>
             <id>repo.bodar.com</id>
             <url>http://repo.bodar.com</url>
-          </repository>
+        </repository>
     </repositories>
 
     <pluginRepositories>
@@ -60,6 +61,7 @@
             <id>repo.jenkins-ci.org</id>
             <url>http://repo.jenkins-ci.org/public/</url>
         </pluginRepository>
+
     </pluginRepositories>
 
     <build>
@@ -80,6 +82,29 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <id>install-external</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${basedir}/src/main/resources/behave-reporting-0.0.24-SNAPSHOT.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>net.python</groupId>
+                            <artifactId>behave-reporting</artifactId>
+                            <version>0.0.24-SNAPSHOT</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <properties>
@@ -89,6 +114,7 @@
     </properties>
 
 
+
     <dependencies>
         <dependency>
             <groupId>net.python</groupId>
@@ -96,9 +122,9 @@
             <version>0.0.24-SNAPSHOT</version>
         </dependency>
         <dependency>
-          <groupId>com.googlecode.totallylazy</groupId>
-          <artifactId>totallylazy</artifactId>
-          <version>1077</version>
-       </dependency>
+            <groupId>com.googlecode.totallylazy</groupId>
+            <artifactId>totallylazy</artifactId>
+            <version>1077</version>
+        </dependency>
     </dependencies>
 </project>
