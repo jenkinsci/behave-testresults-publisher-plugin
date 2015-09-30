@@ -9,7 +9,7 @@
 
     <groupId>net.jenkins</groupId>
     <artifactId>behave-testresults-publisher</artifactId>
-    <version>0.0.11-SNAPSHOT</version>
+    <version>0.0.11</version>
     <packaging>hpi</packaging>
     <url>https://wiki.jenkins-ci.org/display/JENKINS/Behave+Test+Results+Publisher+Plugin</url>
 
@@ -18,7 +18,7 @@
         <developerConnection>scm:git:ssh://git@github.com/jenkinsci/behave-testresults-publisher-plugin.git
         </developerConnection>
         <url>https://github.com/jenkinsci/behave-testresults-publisher-plugin</url>
-        <tag>0.0.2</tag>
+        <tag>behave-testresults-publisher-0.0.11</tag>
     </scm>
 
     <description>
