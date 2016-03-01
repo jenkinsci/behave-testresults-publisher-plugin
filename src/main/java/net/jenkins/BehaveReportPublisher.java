@@ -60,10 +60,10 @@ public class BehaveReportPublisher extends Recorder {
 
         // source directory (possibly on slave)
         FilePath workspaceJsonReportDirectory;
-        if (jsonReportDirectory.isEmpty()) {
-            workspaceJsonReportDirectory = build.getWorkspace();
-        } else {
+        if (jsonReportDirectory != null && !jsonReportDirectory.isEmpty()) {
             workspaceJsonReportDirectory = new FilePath(build.getWorkspace(), jsonReportDirectory);
+        } else {
+            workspaceJsonReportDirectory = build.getWorkspace();
         }
 
         // target directory (always on master)
